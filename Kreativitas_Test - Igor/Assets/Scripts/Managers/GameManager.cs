@@ -11,4 +11,14 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    #region VARIABLES
+    [SerializeField] float firerate;
+
+    #endregion
+
+    #region RETURN VALUES
+    public float GetFireRate() => firerate;
+
+    #endregion
 }

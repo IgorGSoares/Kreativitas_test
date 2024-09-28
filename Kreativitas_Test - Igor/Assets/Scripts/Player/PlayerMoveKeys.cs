@@ -12,7 +12,7 @@ public class PlayerMoveKeys : MonoBehaviour
     void Update()
     {
         float hMove = Input.GetAxisRaw("Horizontal") * speedMove;
-        Debug.Log(hMove);
+        //Debug.Log(hMove);
 
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
