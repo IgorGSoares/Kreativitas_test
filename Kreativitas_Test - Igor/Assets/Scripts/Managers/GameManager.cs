@@ -13,12 +13,16 @@ public class GameManager : MonoBehaviour
     }
 
     #region VARIABLES
-    [SerializeField] float firerate;
+    [SerializeField] float fireRate;
+    [SerializeField] int damage;
+    [SerializeField] int pool;
 
     #endregion
 
     #region RETURN VALUES
-    public float GetFireRate() => firerate;
+    public float GetFireRate() => fireRate;
+    public int GetDamage() => damage;
+    public int GetPool() => pool;
 
     #endregion
 }

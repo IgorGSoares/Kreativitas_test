@@ -9,6 +9,8 @@ public class Pooling : MonoBehaviour
 
     public List<GameObject> pools = new List<GameObject>();
 
+    //private Projectile projectile;
+
     private void Start() {
         for (int i = 0; i < poolAmount; i++)
         {
@@ -18,7 +20,7 @@ public class Pooling : MonoBehaviour
         }
     }
 
-    public void Spawn(Transform spawnPoint)
+    public void SpawnAll(Transform spawnPoint)
     {
         for (int i = 0; i < pools.Count; i++)
         {
@@ -29,5 +31,22 @@ public class Pooling : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SpawnOne(Transform spawnPoint)
+    {
+        pools[0].transform.position = spawnPoint.position;
+        pools[0].SetActive(true);
+
+        pools[0].GetComponent<Projectile>().SetPooling(this);
+
+        pools.Remove(pools[0]);
+    }
+
+    public void Enqueue(GameObject obj)
+    {
+        obj.SetActive(false);
+        obj.transform.position = Vector3.zero;
+        pools.Add(obj);
     }
 }

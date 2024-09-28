@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
         var fireRate = GameManager.Instance.GetFireRate();
         while(playing)
         {
-            poolingBullets.Spawn(spawnPoint);
+            poolingBullets.SpawnOne(spawnPoint);
             yield return new WaitForSeconds(fireRate);
         }
     }
