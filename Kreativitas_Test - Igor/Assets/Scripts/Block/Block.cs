@@ -11,9 +11,11 @@ public abstract class Block : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float gravityScale;
     [SerializeField] Vector3 initialDirection = Vector3.zero;
+    [SerializeField] CircleCollider2D circleCollider2D;
 
     private int currentLife;
     private bool isColiding = false;
+    public float limit;
 
     public int MaxLife { get { return maxLife; } set { maxLife = value; } }
     public Rigidbody2D RB => rb;
@@ -31,13 +33,16 @@ public abstract class Block : MonoBehaviour
     }
 
 
-    void Start()
+    public void InitBlock()
     {
+        circleCollider2D.enabled = false;
+
         currentLife = maxLife;
         lifeCount.text = currentLife.ToString();
 
         Physics2D.IgnoreLayerCollision(6, 8);
         rb.AddForce(initialDirection * 2f, ForceMode2D.Impulse);
+        //Debug.Log(rb.velocity);
     }
 
     void Update()
@@ -49,11 +54,13 @@ public abstract class Block : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        if(Camera.main.WorldToViewportPoint(transform.position).x >= 0.15f)
+        if((limit == 0.15f && Camera.main.WorldToViewportPoint(transform.position).x >= limit)
+            || (limit == 0.85f && Camera.main.WorldToViewportPoint(transform.position).x <= limit))
         {
             rb.gravityScale = gravityScale;
             //Debug.Log("enter if");
             Physics2D.IgnoreLayerCollision(6, 8, false);
+            circleCollider2D.enabled = true;
         }
     }
 
@@ -65,6 +72,22 @@ public abstract class Block : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.gravityScale = 0;
+    }
+
+    public void SetDirection(Transform t)
+    {
+        var p = Camera.main.WorldToViewportPoint(t.position);
+        Debug.Log(p);
+        if(p.x < 0)
+        {
+            initialDirection = Vector3.left * -1;
+            limit = 0.15f;
+        }
+        else if(p.x > 1)
+        {
+            initialDirection = Vector3.left;
+            limit = 0.85f;
+        }
     }
 
 
@@ -83,25 +106,9 @@ public abstract class Block : MonoBehaviour
         }
     }
 
-    // void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.gameObject.tag == "Wall") Debug.Log("leave trigger");
-    // }
-
     IEnumerator ResetColision()
     {
         yield return new WaitForEndOfFrame();
         isColiding = false;
     }
-
-    // void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if(other.gameObject.tag == "Bullet")
-    //     {
-    //         currentLife -= GameManager.Instance.GetDamage();
-    //         other.gameObject.SetActive(false);
-    //         Debug.Log(currentLife);
-    //         lifeCount.text = currentLife.ToString();
-    //     }
-    // }
 }

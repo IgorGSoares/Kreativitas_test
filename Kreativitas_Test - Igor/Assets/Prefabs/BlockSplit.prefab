@@ -269,6 +269,8 @@ MonoBehaviour:
   rb: {fileID: 5496768886314991750}
   gravityScale: 0.5
   initialDirection: {x: 0, y: 0, z: 0}
+  circleCollider2D: {fileID: 6866734844145151909}
+  limit: 0
   spawnPoint: {fileID: 4297332233658153036}
   blocks:
   - {fileID: 2294872717673203317}

@@ -20,11 +20,15 @@ public class GameManager : MonoBehaviour
     #endregion
 
 
+
+
     #region CLASSES
     [Space]
     [SerializeField] Pooling poolingCoins;
     [SerializeField] CanvasManager canvasManager;
+    [SerializeField] SpawnBlocks spawnBlocks;
     #endregion
+
 
 
 
@@ -35,8 +39,13 @@ public class GameManager : MonoBehaviour
 
     public Pooling PoolingCoins => poolingCoins;
     public CanvasManager CanvasManager => canvasManager;
-    
+    public SpawnBlocks SpawnBlocks => spawnBlocks;
     #endregion
+
+
+    // private void Start() {
+    //     ResumeGame();
+    // }
 
     public void StartGame()
     {
@@ -53,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        ResumeGame();
         SceneManager.LoadScene(0);
     }
 }

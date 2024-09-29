@@ -34,6 +34,7 @@ public class BlockSplit : Block
             if (MaxLife % 2 == 0) block.MaxLife = MaxLife / 2;
 
             block.gameObject.SetActive(true);
+            block.InitBlock();
         }
 
         blocks[0].RB.AddForce( new Vector2(-1, 1) * 3.5f, ForceMode2D.Impulse);
