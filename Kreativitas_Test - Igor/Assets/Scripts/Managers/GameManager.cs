@@ -34,4 +34,18 @@ public class GameManager : MonoBehaviour
     public Pooling PoolingCoins => poolingCoins;
     
     #endregion
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

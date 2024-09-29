@@ -20,6 +20,17 @@ public abstract class Block : MonoBehaviour
     public void SetCurrLife() => currentLife = maxLife;
 
 
+    void OnEnable()
+    {
+        GlobalActions.OnPlayerDies += StopPhysics;
+    }
+
+    void OnDisable()
+    {
+        GlobalActions.OnPlayerDies -= StopPhysics;
+    }
+
+
     void Start()
     {
         currentLife = maxLife;
@@ -48,6 +59,13 @@ public abstract class Block : MonoBehaviour
 
     protected abstract void SpawnLoot();
     protected abstract void SpawnParts();
+
+
+    protected void StopPhysics()
+    {
+        rb.velocity = Vector3.zero;
+        rb.gravityScale = 0;
+    }
 
 
     void OnTriggerEnter2D(Collider2D other)

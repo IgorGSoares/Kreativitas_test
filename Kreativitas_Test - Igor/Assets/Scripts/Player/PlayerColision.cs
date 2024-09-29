@@ -12,6 +12,9 @@ public class PlayerColision : MonoBehaviour
         {
             player.SetActive(false);
             //Debug.Log("enter");
+            GlobalActions.OnPlayerDies?.Invoke();
+            
+            GameManager.Instance.PauseGame();
         }
     }
 }
