@@ -9,19 +9,42 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     private bool playing = false;
 
-    void Update()
+    void OnEnable()
     {
-        //REMINDME: transformar isto em uma action
-        if(Input.GetKeyDown(KeyCode.W) && !playing)
-        {
-            playing = !playing;
-            StartCoroutine(StartShooting());
-        }
-        // else if(Input.GetKeyDown(KeyCode.W) && playing)
-        // {
-        //     playing = !playing;
-        //     //StartCoroutine(StartShooting());
-        // }
+        GlobalActions.OnGameBegins += StartShoot;
+        GlobalActions.OnPlayerDies += StopShooting;
+    }
+
+    void OnDisable()
+    {
+        GlobalActions.OnGameBegins -= StartShoot;
+        GlobalActions.OnPlayerDies -= StopShooting;
+    }
+
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.W) && !playing)
+    //     {
+    //         playing = !playing;
+    //         StartCoroutine(StartShooting());
+    //     }
+    //     // else if(Input.GetKeyDown(KeyCode.W) && playing)
+    //     // {
+    //     //     playing = !playing;
+    //     //     //StartCoroutine(StartShooting());
+    //     // }
+    // }
+
+    private void StartShoot()
+    {
+        playing = !playing;
+        StartCoroutine(StartShooting());
+    }
+
+    private void StopShooting()
+    {
+        playing = !playing;
+        StopCoroutine(StartShooting());
     }
 
     IEnumerator StartShooting()
