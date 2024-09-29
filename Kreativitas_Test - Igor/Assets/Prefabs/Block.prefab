@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4297332233658153036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6714330840292040384}
   - component: {fileID: 8373431126937669898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 2857821692399316904}
   - component: {fileID: 5496768886314991750}
   - component: {fileID: 9149273166659421902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -237,8 +237,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.25
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a879067dd9ff6a94c8d067f457264979, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -264,6 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 1
   lifeCount: {fileID: 6117857583539212878}
+  rb: {fileID: 5496768886314991750}
+  gravityScale: 0.5
+  initialDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &5589215438104731199
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +279,7 @@ GameObject:
   - component: {fileID: 605709181455381279}
   - component: {fileID: 833739787311425673}
   - component: {fileID: 7373578154695700061}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +380,7 @@ GameObject:
   - component: {fileID: 3638518379608578148}
   - component: {fileID: 2105449726806030197}
   - component: {fileID: 6117857583539212878}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
