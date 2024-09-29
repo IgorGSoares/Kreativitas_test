@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 280691256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 2.6956, z: 0}
+  m_LocalPosition: {x: 5.18, y: 2.6956, z: 0}
   m_LocalScale: {x: 1, y: 7.86564, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -963,7 +963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5482070259475740160, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
       propertyPath: initialDirection.x
@@ -1431,6 +1431,71 @@ Transform:
   - {fileID: 196802616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1003817514
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -3538956383379233354, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: initialDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_Name
+      value: BlockSplit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12303365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908286097336961359, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
 --- !u!1 &1103980188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1507,7 @@ GameObject:
   - component: {fileID: 1103980189}
   - component: {fileID: 1103980190}
   - component: {fileID: 1103980191}
+  - component: {fileID: 1103980192}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1479,7 +1545,7 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   pool: 20
-  poolingCoins: {fileID: 0}
+  poolingCoins: {fileID: 1103980191}
 --- !u!114 &1103980191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,6 +1561,20 @@ MonoBehaviour:
   prefab: {fileID: 8269023475524113181, guid: 3c25d7cf70a89ce4c80b39bfaaec02f7, type: 3}
   poolAmount: 20
   pools: []
+--- !u!114 &1103980192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103980188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f19d1b80b541a267ab753ddaa90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWall: {fileID: 650430936}
+  rightWall: {fileID: 280691256}
 --- !u!1 &1280153095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,3 +2304,4 @@ SceneRoots:
   - {fileID: 987080041}
   - {fileID: 597812768}
   - {fileID: 8582299425468042629}
+  - {fileID: 1003817514}
