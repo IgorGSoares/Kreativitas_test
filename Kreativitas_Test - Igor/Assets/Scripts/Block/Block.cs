@@ -16,6 +16,7 @@ public abstract class Block : MonoBehaviour
     private bool isColiding = false;
 
     public int MaxLife { get { return maxLife; } set { maxLife = value; } }
+    public Rigidbody2D RB => rb;
     public void SetCurrLife() => currentLife = maxLife;
 
 
@@ -33,6 +34,7 @@ public abstract class Block : MonoBehaviour
         if (currentLife <= 0)
         {
             SpawnLoot();
+            SpawnParts();
             gameObject.SetActive(false);
         }
 

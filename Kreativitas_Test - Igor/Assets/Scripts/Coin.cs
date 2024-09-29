@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
 
     public void SetPooling(Pooling pooling) => this.pooling = pooling;
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTrigerEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player")
         {
