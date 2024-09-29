@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
 
 
     #region CLASSES
+    [Space]
     [SerializeField] Pooling poolingCoins;
+    [SerializeField] CanvasManager canvasManager;
     #endregion
 
 
@@ -32,9 +34,14 @@ public class GameManager : MonoBehaviour
     public int GetPool() => pool;
 
     public Pooling PoolingCoins => poolingCoins;
+    public CanvasManager CanvasManager => canvasManager;
     
     #endregion
 
+    public void StartGame()
+    {
+        GlobalActions.OnGameBegins?.Invoke();
+    }
     public void PauseGame()
     {
         Time.timeScale = 0;
