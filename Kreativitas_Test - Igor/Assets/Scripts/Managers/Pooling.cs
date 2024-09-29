@@ -38,7 +38,8 @@ public class Pooling : MonoBehaviour
         pools[0].transform.position = spawnPoint.position;
         pools[0].SetActive(true);
 
-        pools[0].GetComponent<Projectile>().SetPooling(this);
+        pools[0].GetComponent<Projectile>()?.SetPooling(this);
+        pools[0].GetComponent<Coin>()?.SetPooling(this);
 
         pools.Remove(pools[0]);
     }

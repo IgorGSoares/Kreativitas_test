@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
 
     IEnumerator StartShooting()
     {
-        Debug.Log("shoot");
+        //Debug.Log("shoot");
 
         var fireRate = GameManager.Instance.GetFireRate();
         while(playing)

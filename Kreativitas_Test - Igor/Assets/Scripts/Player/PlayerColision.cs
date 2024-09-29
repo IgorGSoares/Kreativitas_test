@@ -11,7 +11,7 @@ public class PlayerColision : MonoBehaviour
         if(other.gameObject.tag == "Block") //REMINDME: action onplayerdies
         {
             player.SetActive(false);
-            Debug.Log("enter");
+            //Debug.Log("enter");
         }
     }
 }

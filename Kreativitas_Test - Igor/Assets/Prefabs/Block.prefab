@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4297332233658153036}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6866734844145151909}
   - component: {fileID: 2857821692399316904}
   - component: {fileID: 5496768886314991750}
-  - component: {fileID: 9149273166659421902}
+  - component: {fileID: 5482070259475740160}
   m_Layer: 8
   m_Name: Block
   m_TagString: Block
@@ -250,7 +250,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9149273166659421902
+--- !u!114 &5482070259475740160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3267893435633875858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a84bd67833a45134387a4b13d2ee7642, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f82aaf13a34f2b41830d7b8efd2fdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 1
@@ -267,6 +267,8 @@ MonoBehaviour:
   rb: {fileID: 5496768886314991750}
   gravityScale: 0.5
   initialDirection: {x: 0, y: 0, z: 0}
+  spawnPoint: {fileID: 4297332233658153036}
+  qtdCoins: 3
 --- !u!1 &5589215438104731199
 GameObject:
   m_ObjectHideFlags: 0

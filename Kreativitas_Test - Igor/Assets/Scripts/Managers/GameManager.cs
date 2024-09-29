@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,13 +17,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] float fireRate;
     [SerializeField] int damage;
     [SerializeField] int pool;
-
     #endregion
+
+
+    #region CLASSES
+    [SerializeField] Pooling poolingCoins;
+    #endregion
+
+
 
     #region RETURN VALUES
     public float GetFireRate() => fireRate;
     public int GetDamage() => damage;
     public int GetPool() => pool;
 
+    public Pooling PoolingCoins => poolingCoins;
+    
     #endregion
 }

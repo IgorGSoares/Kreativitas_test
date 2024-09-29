@@ -14,10 +14,10 @@ public class PlayerMoveKeys : MonoBehaviour
         float hMove = Input.GetAxisRaw("Horizontal") * speedMove;
         //Debug.Log(hMove);
 
-        if(Input.GetAxisRaw("Horizontal") != 0)
-        {
-            Debug.Log("pressing");
-        }
+        // if(Input.GetAxisRaw("Horizontal") != 0)
+        // {
+        //     Debug.Log("pressing");
+        // }
 
         transform.position += transform.right * hMove * Time.deltaTime;
 
