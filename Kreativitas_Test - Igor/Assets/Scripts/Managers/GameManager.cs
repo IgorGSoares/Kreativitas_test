@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int pool;
     [SerializeField] int coins;
+    [SerializeField] int currentWave;
     [SerializeField] GameObject cam;
+
+    private int waveProgress;
     #endregion
 
 
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
     public int Damage { get { return damage; } set { damage = value; } }
     public int Pool { get { return pool; } set { pool = value; } }
     public int Coins { get { return coins; } set { coins = value; } }
+    public int CurrentWave => currentWave;
 
     public Pooling PoolingCoins => poolingCoins;
     public CanvasManager CanvasManager => canvasManager;
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
         damage = playerSO.damage;
         coins = playerSO.coins;
         pool = playerSO.pool;
+        currentWave = playerSO.currentWave;
     }
 
     public void StartGame()

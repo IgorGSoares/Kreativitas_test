@@ -9,4 +9,5 @@ public class PlayerSO : ScriptableObject
     public int damage;
     public int pool;
     public int coins;
+    public int currentWave;
 }

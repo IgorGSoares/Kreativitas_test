@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed072587e3a039649aeb231ed22ed94c, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  firerate: 1
+  firerate: 0.25
   damage: 1
   pool: 20
   coins: 0
+  currentWave: 0

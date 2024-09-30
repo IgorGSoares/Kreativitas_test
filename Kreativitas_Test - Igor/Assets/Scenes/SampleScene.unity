@@ -2468,7 +2468,7 @@ GameObject:
   - component: {fileID: 1103980191}
   - component: {fileID: 1103980192}
   - component: {fileID: 1103980193}
-  - component: {fileID: 1103980194}
+  - component: {fileID: 1103980195}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2507,11 +2507,12 @@ MonoBehaviour:
   damage: 1
   pool: 20
   coins: 0
+  currentWave: 0
   cam: {fileID: 1971607743}
   playerSO: {fileID: 11400000, guid: 03504da71dbfef244ba9061df3d77c75, type: 2}
   poolingCoins: {fileID: 1103980191}
   canvasManager: {fileID: 1103980193}
-  spawnBlocks: {fileID: 1103980194}
+  spawnBlocks: {fileID: 0}
 --- !u!114 &1103980191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2559,7 +2560,7 @@ MonoBehaviour:
   panelGame: {fileID: 81664603}
   panelPause: {fileID: 1446068595}
   panelGameOver: {fileID: 728501707}
---- !u!114 &1103980194
+--- !u!114 &1103980195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2568,17 +2569,81 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103980188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9546a924ebbb984aa656424ec10e17f, type: 3}
+  m_Script: {fileID: 11500000, guid: cf35ea8b4ac48424f9fb35f231ae9b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocksPrefabs:
-  - {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
-  - {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
-  - {fileID: 5743908816956624731, guid: 08cd28ab2a1f9da499a788e4a75458c1, type: 3}
+  currentWave: 0
   spawnPoints:
   - {fileID: 479682252}
   - {fileID: 2107256141}
   delaySpawn: 5
+  waves:
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 3
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 2, y: 5}
+    total: 5
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 3
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 3
+      values: {x: 2, y: 5}
+    total: 6
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 3
+      values: {x: 2, y: 5}
+    - prefab: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      qtd: 2
+      values: {x: 6, y: 12}
+    total: 7
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 3
+      values: {x: 2, y: 5}
+    - prefab: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      qtd: 2
+      values: {x: 6, y: 12}
+    total: 7
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 2, y: 5}
+    - prefab: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      qtd: 3
+      values: {x: 6, y: 12}
+    - prefab: {fileID: 5743908816956624731, guid: 08cd28ab2a1f9da499a788e4a75458c1, type: 3}
+      qtd: 2
+      values: {x: 13, y: 18}
+    total: 9
+  - blocksInWave:
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 1, y: 1}
+    - prefab: {fileID: 3267893435633875858, guid: 4d1e28d38fba1784bb9938cb98de512d, type: 3}
+      qtd: 2
+      values: {x: 2, y: 5}
+    - prefab: {fileID: 3267893435633875858, guid: 9395061bead99d04f901e3a83f05200d, type: 3}
+      qtd: 3
+      values: {x: 6, y: 12}
+    - prefab: {fileID: 5743908816956624731, guid: 08cd28ab2a1f9da499a788e4a75458c1, type: 3}
+      qtd: 2
+      values: {x: 13, y: 18}
+    total: 9
 --- !u!1 &1108007070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4071,7 +4136,6 @@ GameObject:
   - component: {fileID: 1519859099}
   - component: {fileID: 1519859095}
   - component: {fileID: 1519859101}
-  - component: {fileID: 1519859094}
   - component: {fileID: 1519859097}
   - component: {fileID: 1519859096}
   - component: {fileID: 1519859098}
@@ -4099,20 +4163,6 @@ Transform:
   - {fileID: 30316034}
   m_Father: {fileID: 1405649448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1519859094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519859092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d45c800a2b63d244abc325817c2c226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMove: 7.5
-  rb: {fileID: 1519859095}
 --- !u!50 &1519859095
 Rigidbody2D:
   serializedVersion: 4
@@ -4264,7 +4314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ab9944c8f238e4cbf94903b98e881d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 5
+  speedMove: 7.5
   rb: {fileID: 1519859095}
   Joystick: {fileID: 126890576}
 --- !u!1 &1725722036
