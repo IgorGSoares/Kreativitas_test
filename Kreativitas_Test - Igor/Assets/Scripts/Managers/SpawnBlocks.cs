@@ -46,7 +46,7 @@ public class SpawnBlocks : MonoBehaviour
             var block = obj.GetComponent<Block>();
             block.SetDirection(spawnPoints[s]);
 
-            Debug.Log(spawnPoints[s].gameObject.name);
+            //Debug.Log(spawnPoints[s].gameObject.name);
             block.InitBlock();
 
             // if(Camera.main.WorldToViewportPoint(spawnPoints[s].position).x > 1)

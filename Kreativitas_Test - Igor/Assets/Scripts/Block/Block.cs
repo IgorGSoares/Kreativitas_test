@@ -9,17 +9,19 @@ public abstract class Block : MonoBehaviour
     [SerializeField] int maxLife;
     [SerializeField] TextMeshProUGUI lifeCount;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float gravityScale;
+    [SerializeField] protected float gravityScale;
+
     [SerializeField] Vector3 initialDirection = Vector3.zero;
     [SerializeField] CircleCollider2D circleCollider2D;
 
-    private int currentLife;
+    protected int currentLife;
     private bool isColiding = false;
     public float limit;
 
     public int MaxLife { get { return maxLife; } set { maxLife = value; } }
     public Rigidbody2D RB => rb;
-    public void SetCurrLife() => currentLife = maxLife;
+    public CircleCollider2D CircleCollider2D => circleCollider2D;
+    
 
 
     void OnEnable()
@@ -32,6 +34,12 @@ public abstract class Block : MonoBehaviour
         GlobalActions.OnPlayerDies -= StopPhysics;
     }
 
+    public void SetCurrLife()
+    {
+        currentLife = maxLife;
+        lifeCount.text = currentLife.ToString();
+    }
+
 
     public void InitBlock()
     {
@@ -40,10 +48,25 @@ public abstract class Block : MonoBehaviour
         currentLife = maxLife;
         lifeCount.text = currentLife.ToString();
 
-        Physics2D.IgnoreLayerCollision(6, 8);
+        //Physics2D.IgnoreLayerCollision(6, 8);
         rb.AddForce(initialDirection * 2f, ForceMode2D.Impulse);
         //Debug.Log(rb.velocity);
     }
+
+    // public void DropBlock()
+    // {
+    //     currentLife = maxLife;
+    //     lifeCount.text = currentLife.ToString();
+
+    //     // var dir = Random.Range(0, 2);
+    //     // if(dir == 0) dir = -1;
+    //     // var force = Random.Range(1, 3);
+
+    //     rb.gravityScale = gravityScale;
+    //     circleCollider2D.enabled = true;
+
+    //     //rb.AddForce(Vector2.left * dir * force, ForceMode2D.Impulse);
+    // }
 
     void Update()
     {
@@ -54,13 +77,16 @@ public abstract class Block : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        if((limit == 0.15f && Camera.main.WorldToViewportPoint(transform.position).x >= limit)
-            || (limit == 0.85f && Camera.main.WorldToViewportPoint(transform.position).x <= limit))
+        if(initialDirection != Vector3.zero)
         {
-            rb.gravityScale = gravityScale;
-            //Debug.Log("enter if");
-            Physics2D.IgnoreLayerCollision(6, 8, false);
-            circleCollider2D.enabled = true;
+            if ((limit == 0.15f && Camera.main.WorldToViewportPoint(transform.position).x >= limit)
+            || (limit == 0.85f && Camera.main.WorldToViewportPoint(transform.position).x <= limit))
+            {
+                rb.gravityScale = gravityScale;
+                //Debug.Log("enter if");
+                //Physics2D.IgnoreLayerCollision(6, 8, false);
+                circleCollider2D.enabled = true;
+            }
         }
     }
 
@@ -77,7 +103,7 @@ public abstract class Block : MonoBehaviour
     public void SetDirection(Transform t)
     {
         var p = Camera.main.WorldToViewportPoint(t.position);
-        Debug.Log(p);
+        //Debug.Log(p);
         if(p.x < 0)
         {
             initialDirection = Vector3.left * -1;
@@ -98,7 +124,7 @@ public abstract class Block : MonoBehaviour
         if(other.gameObject.tag == "Bullet")
         {
             isColiding = true;
-            currentLife -= GameManager.Instance.GetDamage();
+            currentLife -= GameManager.Instance.Damage;
             other.gameObject.SetActive(false);
             //Debug.Log(currentLife);
             lifeCount.text = currentLife.ToString();

@@ -21,11 +21,12 @@ public class Coin : MonoBehaviour
 
     public void SetPooling(Pooling pooling) => this.pooling = pooling;
 
-    void OnTrigerEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player")
         {
             pooling.Enqueue(gameObject);
+            GameManager.Instance.Coins += value;
         }
     }
 

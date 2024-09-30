@@ -28,13 +28,29 @@ public class BlockSplit : Block
         {
             block.transform.parent = null;
             block.transform.position = spawnPoint.position;
+            // block.transform.localScale -= Vector3.one;
+            // Debug.Log(block.transform.localScale);
+            if(transform.localScale == Vector3.one * 3)
+            {
+                block.transform.localScale = Vector3.one * 2;
+            }
+            else if(transform.localScale == Vector3.one * 2)
+            {
+                block.transform.localScale = Vector3.one * 1;
+                // Debug.Log(block.transform.localScale);
+            }
+
             // var dir = Random.Range(0, 2);
             // if (dir == 0) dir = -1;
 
             if (MaxLife % 2 == 0) block.MaxLife = MaxLife / 2;
 
             block.gameObject.SetActive(true);
-            block.InitBlock();
+            //block.DropBlock();
+
+            block.SetCurrLife();
+            block.RB.gravityScale = gravityScale;
+            block.CircleCollider2D.enabled = true;
         }
 
         blocks[0].RB.AddForce( new Vector2(-1, 1) * 3.5f, ForceMode2D.Impulse);

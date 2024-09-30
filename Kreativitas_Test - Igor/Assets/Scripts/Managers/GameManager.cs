@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float fireRate;
     [SerializeField] int damage;
     [SerializeField] int pool;
+    [SerializeField] int coins;
     #endregion
 
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     #region CLASSES
     [Space]
+    [SerializeField] PlayerSO playerSO;
     [SerializeField] Pooling poolingCoins;
     [SerializeField] CanvasManager canvasManager;
     [SerializeField] SpawnBlocks spawnBlocks;
@@ -33,9 +35,10 @@ public class GameManager : MonoBehaviour
 
 
     #region RETURN VALUES
-    public float GetFireRate() => fireRate;
-    public int GetDamage() => damage;
-    public int GetPool() => pool;
+    public float FireRate { get { return fireRate; } set { fireRate = value; } }
+    public int Damage { get { return damage; } set { damage = value; } }
+    public int Pool { get { return pool; } set { pool = value; } }
+    public int Coins { get { return coins; } set { coins = value; } }
 
     public Pooling PoolingCoins => poolingCoins;
     public CanvasManager CanvasManager => canvasManager;
@@ -43,9 +46,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
 
-    // private void Start() {
-    //     ResumeGame();
-    // }
+    private void Start() {
+        fireRate = playerSO.firerate;
+        damage = playerSO.damage;
+        coins = playerSO.coins;
+        pool = playerSO.pool;
+    }
 
     public void StartGame()
     {
@@ -64,5 +70,10 @@ public class GameManager : MonoBehaviour
     {
         ResumeGame();
         SceneManager.LoadScene(0);
+    }
+
+    public void GameOver()
+    {
+        playerSO.coins = coins;
     }
 }
