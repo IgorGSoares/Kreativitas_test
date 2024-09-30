@@ -17,11 +17,18 @@ Uma classe de polling foi desenvolvida de forma que pudesse ser usada tanto para
 Durante o desenvolvimento, buscou-se separar as classes devidamente por suas funções e utilizar meios que otimizassem o jogo, como colisores em forma de círculo e cápsula, pooling, usar em poucos momentos o método GetComponent<>, uma classe de Actions, o jogo ser feito em uma única tela (algo que eu já havia feito durante uma GameJam Solidária e me deu o conhecimento necessário para o fazer outra vez), etc. A UI foi desenvolvida de forma simples, porém visando ser compatível com dispositivos móveis e que comportasse futuras atualizações (sobretudo uma futura tela de loja, upgrade, e troca de canhões). Um sistema simples de spawn das pedras foi desenvolvido, e posteriormente refeito para atuar como um sistema de ondas. Parte do código precisou ser repensado, mas não totalmente descartado, já que a base para spawná-los em tela foi reaproveitado nas ondas.
 
 Infelizmente devido à escassez de tempo e complexidade, houveram elementos que foram pensados, mas que não puderam ser implementados, sendo eles:
--Chefão
--Power ups e pedras que os spawnam
--Sistema de upgrade
--Loja de pontos e de canhões
--Sistema de Save (este último não era complexo, mas outros fatores mais importantes como as pedras e o sistema de spawn delas se provaram mais importantes)
+  -Chefão;
+
+  -Power ups e pedras que os spawnam;
+
+  -Sistema de upgrade;
+
+  -Loja de pontos e de canhões;
+
+  -Mais informações na UI;
+
+  -Sistema de Save (este último não era complexo, mas outros fatores mais importantes como as pedras e o sistema de spawn delas se provaram mais importantes).
+
 
 Todavia, agradeço pela experiência, foi bom desenvolver o projeto e aprendi muito com esta experiência. Caso algum dos elementos que foram desenvolvidos poderiam ter sido executados de uma forma melhor, gostaria de saber para assim melhorar profissionalmente. 
 
