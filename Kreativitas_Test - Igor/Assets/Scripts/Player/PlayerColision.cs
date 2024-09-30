@@ -16,6 +16,7 @@ public class PlayerColision : MonoBehaviour
             GlobalActions.OnPlayerDies?.Invoke();
 
             GameManager.Instance.PauseGame();
+            GameManager.Instance.GameOver();
             GameManager.Instance.CanvasManager.GameOver();
         }
         //if(other.gameObject.tag == "Coin") rb.velocity = Vector3.zero;
