@@ -9,6 +9,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject panelGame;
     [SerializeField] GameObject panelPause;
     [SerializeField] GameObject panelGameOver;
+    [SerializeField] GameObject panelWinGame;
 
 
     public void StartMatch()
@@ -35,5 +36,11 @@ public class CanvasManager : MonoBehaviour
     {
         panelGame.SetActive(false);
         panelGameOver.SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        panelGame.SetActive(false);
+        panelWinGame.SetActive(true);
     }
 }

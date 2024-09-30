@@ -12,12 +12,19 @@ public class Coin : MonoBehaviour
 
     void OnEnable()
     {
+        GlobalActions.OnGameWins += CoinColectWhenWin;
+
         var dir = Random.Range(0, 2);
         if(dir == 0) dir = -1;
 
         var force = Random.Range(1, 5);
 
         rb.AddForce(Vector2.left * dir * force, ForceMode2D.Impulse);
+    }
+
+    void OnDisable()
+    {
+        GlobalActions.OnGameWins -= CoinColectWhenWin;
     }
 
     public void SetPooling(Pooling pooling) => this.pooling = pooling;
@@ -45,6 +52,11 @@ public class Coin : MonoBehaviour
             pooling.Enqueue(gameObject);
             GameManager.Instance.Coins += value;
         }
+    }
+
+    private void CoinColectWhenWin()
+    {
+        GameManager.Instance.Coins += value;
     }
 
 }

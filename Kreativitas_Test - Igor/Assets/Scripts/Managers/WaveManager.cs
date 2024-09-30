@@ -16,29 +16,33 @@ public class WaveManager : MonoBehaviour
 
     void OnEnable()
     {
-        GlobalActions.OnGameBegins += StartSpawn;
+        //GlobalActions.OnGameBegins += StartSpawn;
         GlobalActions.OnPlayerDies += StopSpawn;
+        GlobalActions.OnBlockDestroyed += CheckWaveEnded;
     }
 
     void OnDisable()
     {
-        GlobalActions.OnGameBegins -= StartSpawn;
+        //GlobalActions.OnGameBegins -= StartSpawn;
         GlobalActions.OnPlayerDies -= StopSpawn;
+        GlobalActions.OnBlockDestroyed -= CheckWaveEnded;
     }
 
     
-    private void Start() {
+    // private void Start() {
+    //     currentWave = GameManager.Instance.CurrentWave;
+
+    //     // foreach (var wave in waves)
+    //     // {
+    //     //     //wave.Init();
+    //     //     wave.SetTotal();
+    //     // }
+    // }
+
+    public void StartSpawn()
+    {
         currentWave = GameManager.Instance.CurrentWave;
 
-        // foreach (var wave in waves)
-        // {
-        //     //wave.Init();
-        //     wave.SetTotal();
-        // }
-    }
-
-    private void StartSpawn()
-    {
         gameBegin = !gameBegin;
         StartCoroutine(SpawnBlock());
     }
@@ -52,8 +56,9 @@ public class WaveManager : MonoBehaviour
     {
         Waves wave = waves[currentWave];
         currentTotal = wave.total;
+        Debug.Log("total is: " + wave.total);
 
-        Debug.Log("call coroutine");
+        //Debug.Log("call coroutine");
 
         while (gameBegin && waveProgress < currentTotal)
         {
@@ -79,11 +84,22 @@ public class WaveManager : MonoBehaviour
 
             waveProgress++;
 
-            Debug.Log("total is: " + wave.total);
+            //Debug.Log("total is: " + wave.total);
 
             yield return new WaitForSeconds(delaySpawn);
         }
     }
+
+    private void CheckWaveEnded()
+    {
+        if(waveProgress == currentTotal)
+        {
+            GlobalActions.OnGameWins?.Invoke();
+            GameManager.Instance.GameWin();
+        }
+    }
+
+    public int GetWavesArraySize() => waves.Length;
 }
 
 [System.Serializable]

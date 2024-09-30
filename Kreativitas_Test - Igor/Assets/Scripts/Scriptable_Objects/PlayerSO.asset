@@ -16,4 +16,4 @@ MonoBehaviour:
   damage: 1
   pool: 20
   coins: 0
-  currentWave: 0
+  currentWave: 6

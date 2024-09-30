@@ -74,6 +74,7 @@ public abstract class Block : MonoBehaviour
         {
             SpawnLoot();
             SpawnParts();
+            GlobalActions.OnBlockDestroyed?.Invoke();
             gameObject.SetActive(false);
         }
 

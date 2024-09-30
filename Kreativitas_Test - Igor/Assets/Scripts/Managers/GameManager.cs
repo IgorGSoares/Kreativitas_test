@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerSO playerSO;
     [SerializeField] Pooling poolingCoins;
     [SerializeField] CanvasManager canvasManager;
-    [SerializeField] SpawnBlocks spawnBlocks;
+    //[SerializeField] SpawnBlocks spawnBlocks;
+    [SerializeField] WaveManager waveManager;
     #endregion
 
 
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public Pooling PoolingCoins => poolingCoins;
     public CanvasManager CanvasManager => canvasManager;
-    public SpawnBlocks SpawnBlocks => spawnBlocks;
+    //public SpawnBlocks SpawnBlocks => spawnBlocks;
     #endregion
 
 
@@ -67,6 +68,7 @@ public class GameManager : MonoBehaviour
         cam.transform.position = pos;
 
         GlobalActions.OnGameBegins?.Invoke();
+        waveManager.StartSpawn();
     }
     public void PauseGame()
     {
@@ -83,8 +85,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void GameOver()
+    public void GameOver()//NOTE: called in button
     {
+        playerSO.coins = coins;
+    }
+
+    public void GameWin()
+    {
+        canvasManager.WinGame();
+        playerSO.currentWave++;
+        if(playerSO.currentWave >= waveManager.GetWavesArraySize()) playerSO.currentWave = 0;
         playerSO.coins = coins;
     }
 }
