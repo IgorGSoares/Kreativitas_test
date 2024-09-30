@@ -20,4 +20,9 @@ public class PlayerColision : MonoBehaviour
         }
         //if(other.gameObject.tag == "Coin") rb.velocity = Vector3.zero;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Wall") Debug.Log("wall");
+    }
 }
