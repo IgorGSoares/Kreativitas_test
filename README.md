@@ -1,8 +1,11 @@
 # Kreativitas_test
 
 Versão da Unity: 2022.3.28f
+
 Branch atual: wave
+
 Link Trello: https://trello.com/invite/b/66f735833076887d8b0eed69/ATTI5b0f7e86afe5821f61f482546d2017289AEE1C3D/kreativitas-test
+
 Link Build: https://drive.google.com/drive/folders/1gt3CkH6svmnQS0QGv9-GWTjKDulpaHjL?usp=sharing
 
 Início da produção: 27/09/2024 -> 19:30
