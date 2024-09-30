@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] int value = 1;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] CircleCollider2D circleCollider2D;
     [SerializeField] Pooling pooling;
 
     void OnEnable()
@@ -22,6 +23,22 @@ public class Coin : MonoBehaviour
     public void SetPooling(Pooling pooling) => this.pooling = pooling;
 
     void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            pooling.Enqueue(gameObject);
+            GameManager.Instance.Coins += value;
+        }
+
+        if(other.gameObject.tag == "Ground")
+        {
+            rb.gravityScale = 0;
+            rb.velocity = Vector3.zero;
+            circleCollider2D.enabled = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerColision : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    //[SerializeField] Rigidbody2D rb;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,5 +18,6 @@ public class PlayerColision : MonoBehaviour
             GameManager.Instance.PauseGame();
             GameManager.Instance.CanvasManager.GameOver();
         }
+        //if(other.gameObject.tag == "Coin") rb.velocity = Vector3.zero;
     }
 }
